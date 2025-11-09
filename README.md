@@ -42,6 +42,8 @@ npm install
 npm start
 http://localhost:3000
 
+##  Project Structure
+
 ```
 collaborative-canvas/
 ├── client/                
@@ -101,5 +103,6 @@ Add save/load feature for drawings
 More tools like shapes, text, layers
 Ability to export drawing as PNG
 Private rooms with optional authentication
+
 
 

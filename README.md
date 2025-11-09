@@ -22,12 +22,7 @@ A multi-user drawing application with real-time synchronization, global undo/red
 - npm or yarn
 
 ### Installation
-
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd collaborative-canvas
-
 # Install dependencies
 npm install
 
@@ -38,7 +33,6 @@ npm start
 The application will be available at `http://localhost:3000`
 
 ### Development Mode
-
 ```bash
 npm run dev
 ```
@@ -54,7 +48,6 @@ npm run dev
 - Other devices on same network can connect to: `http://<your-ip>:3000`
 
 ## 📁 Project Structure
-
 ```
 collaborative-canvas/
 ├── client/
@@ -64,7 +57,9 @@ collaborative-canvas/
 │   ├── websocket.js        # WebSocket client manager
 │   └── main.js             # Application initialization
 ├── server/
-│   └── server.js           # Express + WebSocket server
+│   ├── server.js           # Express + WebSocket server
+│   ├── rooms.js            # Room management (future use)
+│   └── drawing-state.js    # Canvas state management
 ├── package.json
 ├── README.md
 └── ARCHITECTURE.md
@@ -119,45 +114,26 @@ const batch = this.drawQueue.splice(0, 10); // Operations per frame
 ## 🐛 Known Limitations
 
 1. **Canvas State**: Not persisted between server restarts
-2. **Conflict Resolution**: Last-write-wins model (no operational transforms)
+2. **Conflict Resolution**: Last-write-wins model
 3. **Scalability**: Tested up to 10 concurrent users
-4. **Undo/Redo**: Limited to drawing operations (doesn't track color/size changes)
+4. **Undo/Redo**: Limited to drawing operations
 5. **Browser Compatibility**: Tested on Chrome, Firefox, Safari (modern versions)
 
 ## 🚀 Deployment
 
 ### Heroku
-
 ```bash
-# Login to Heroku
 heroku login
-
-# Create app
 heroku create your-app-name
-
-# Deploy
 git push heroku main
-
-# Open app
 heroku open
 ```
 
-### Vercel/Netlify
-
-For serverless deployment, you'll need to modify the architecture to use a managed WebSocket service like Pusher or Socket.io with Redis adapter.
-
 ## 📊 Performance Metrics
 
-- **Latency**: ~50-100ms for drawing sync (depends on network)
+- **Latency**: ~50-100ms for drawing sync
 - **FPS**: Maintains 60fps with up to 5 concurrent users
 - **Message Batching**: Reduces network calls by ~70%
-- **Canvas Optimization**: Efficient redraw strategies for smooth performance
-
-## 🔒 Security Notes
-
-- No authentication implemented (suitable for demos/testing)
-- WebSocket connections are not encrypted in development
-- For production: Add WSS, rate limiting, and input validation
 
 ## ⏱️ Development Time
 
@@ -171,10 +147,6 @@ Breakdown:
 - UI/UX Design: 1.5 hours
 - Testing & Debugging: 2 hours
 
-## 🤝 Contributing
-
-This is an assignment submission. Feel free to fork and modify for your own use.
-
 ## 📝 License
 
-MIT License - Feel free to use this code for learning purposes.
+MIT License

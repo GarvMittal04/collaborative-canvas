@@ -85,7 +85,7 @@ body {
     font-weight: 600;
 }
 
-/* Main Content */
+/* Main */
 .main-content {
     flex: 1;
     display: flex;
@@ -341,4 +341,5 @@ body {
     .canvas-container {
         padding: 1rem;
     }
+
 }

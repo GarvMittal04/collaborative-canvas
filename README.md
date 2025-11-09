@@ -1,221 +1,93 @@
 # 🎨 Collaborative Drawing Canvas (Flam Assignment)
 
-> A real-time multiplayer drawing app where creativity meets collaboration!
+A real-time drawing web app that allows multiple users to sketch together on a shared canvas. Built using Vanilla JavaScript, HTML5 Canvas, Node.js, and Socket.IO, this project focuses on real-time sync and smooth drawing without using any frontend frameworks.
 
-## 🌐 Live Demo
+Live Demo
 
-**[✨ Try it live here!](https://your-app-url.onrender.com)** ← Replace with your actual URL
+(Add your deployed link here)
 
-Open it in multiple tabs and watch the magic happen! 🪄
+Open the link in two or more tabs to see real-time collaboration in action.
 
----
+Overview
 
-## 💡 What is this?
+This application enables users to draw simultaneously on the same canvas, with each stroke instantly visible to everyone connected. It can be used for basic remote collaboration, sketching ideas, or understanding real-time WebSocket communication.
 
-Ever wanted to draw with friends in real-time, no matter where they are? That's exactly what this app does! 
+Features
 
-Think of it like Google Docs, but for drawing. Multiple people can draw on the same canvas simultaneously, and everyone sees the changes instantly. It's perfect for:
+Brush and Eraser tools
 
-- 🎓 Remote teaching and tutoring
-- 🎮 Playing Pictionary with friends
-- 💼 Collaborative brainstorming sessions
-- 🎨 Just having fun doodling together!
+Color and stroke size control
 
----
+Real-time drawing sync across users
 
-## ✨ Cool Features
+Shows active users and their cursor positions
 
-### 🖌️ Drawing Tools
-- **Brush**: Draw smooth, colorful strokes
-- **Eraser**: Fix your mistakes (we all make them!)
-- **Color Picker**: Choose from millions of colors
-- **Brush Size**: From tiny details (1px) to bold strokes (50px)
+Global Undo/Redo for actions done on the shared canvas
 
-### 👥 Collaboration Magic
-- **Real-time Sync**: See others draw as they draw, not after!
-- **User Colors**: Each person gets a unique color identifier
-- **Live Cursors**: See where others are pointing (like in Figma)
-- **User List**: Know who's online with you
+Works on desktop and touch devices
 
-### 🔄 Advanced Stuff
-- **Global Undo/Redo**: Anyone can undo the last action (democratic art! 🗳️)
-- **Clear Canvas**: Start fresh (with everyone's permission)
-- **Performance Monitor**: See your FPS counter (for the nerds 🤓)
-- **Touch Support**: Draw with your finger on mobile/tablet
+Installation & Setup
+Requirements
 
-### ⌨️ Keyboard Shortcuts
-Because who doesn't love shortcuts?
-- `Ctrl/Cmd + Z`: Undo
-- `Ctrl/Cmd + Y` or `Ctrl/Cmd + Shift + Z`: Redo
+Node.js v14 or above
 
----
-
-## 🚀 Running It Yourself
-
-Want to tinker with the code? Here's how!
-
-### What You Need
-- **Node.js** (version 14 or newer) - [Download here](https://nodejs.org/)
-- A terminal/command prompt
-- 5 minutes of your time ⏱️
-
-### Installation
-```bash
-# 1. Clone this repository (or download the ZIP)
+Steps
 git clone https://github.com/YOUR_USERNAME/collaborative-canvas.git
-
-# 2. Go into the folder
 cd collaborative-canvas
-
-# 3. Install dependencies (this might take a minute)
 npm install
-
-# 4. Start the server
 npm start
-```
 
-That's it! Open `http://localhost:3000` in your browser. 🎉
 
-### Testing with Multiple Users
+Now open:
 
-Want to test the collaboration feature?
+http://localhost:3000
 
-**Easy way:**
-1. Open `http://localhost:3000` in Chrome
-2. Open `http://localhost:3000` in Firefox (or another Chrome tab)
-3. Start drawing in one → watch it appear in the other! ✨
 
-**Impress your friends:**
-1. Find your computer's IP address:
-   - **Windows**: Open CMD, type `ipconfig`, look for "IPv4 Address"
-   - **Mac/Linux**: Open Terminal, type `ifconfig`, look for "inet"
-2. Share `http://YOUR_IP:3000` with friends on the same WiFi
-3. Now you're all drawing together! 🎨
+For multi-user testing, open the link in multiple browser windows or devices.
 
----
-
-## 📁 Project Structure
-```
+Project Structure
 collaborative-canvas/
-├── client/                  # Frontend (what you see in the browser)
-│   ├── index.html          # The main page structure
-│   ├── style.css           # Makes it look pretty 💅
-│   ├── canvas.js           # Handles all the drawing logic
-│   ├── websocket.js        # Talks to the server in real-time
-│   └── main.js             # Brings everything together
-│
-├── server/                  # Backend (the brain of the operation)
-│   ├── server.js           # Main server file
-│   ├── rooms.js            # (Future) Multiple room support
-│   └── drawing-state.js    # Manages the drawing history
-│
-├── package.json            # List of dependencies
-└── README.md               # You are here! 👋
-```
+├── client/
+│   ├── index.html
+│   ├── style.css
+│   ├── canvas.js
+│   ├── websocket.js
+│   └── main.js
+├── server/
+│   ├── server.js
+│   ├── rooms.js
+│   └── drawing-state.js
+├── package.json
+└── README.md
 
----
+How It Works
 
-## 🎯 How It Works (Simple Explanation)
+User drawing events are captured and sent to the server.
 
-1. **You draw** → Your browser captures the pen movements
-2. **Message sent** → "Hey server, I drew a line from (10,20) to (30,40)"
-3. **Server broadcasts** → "Everyone! Someone drew a line!"
-4. **Others receive** → All connected users get the message
-5. **They draw too** → Their browsers draw the same line
-6. **Result**: Everyone sees the same thing! 🎉
+The server broadcasts those events to all connected clients.
 
-It's like a group chat, but instead of sending text, you're sending drawing instructions!
+Each client updates the canvas to reflect the latest strokes.
 
----
+Undo/Redo is handled on the server to maintain a consistent shared state.
 
-## 🐛 Known Limitations
+Known Limitations
 
-I'm being honest here - this is a learning project, not a billion-dollar app (yet 😉):
+Drawing is not saved after server restart (no persistence yet)
 
-1. **Drawing History**: Doesn't save when you close the page or restart the server
-2. **Undo Chaos**: If you undo, it removes the *last* thing drawn, even if someone else drew it (democracy in action!)
-3. **User Limit**: Works great with 2-5 users, gets a bit laggy with 10+
-4. **No Authentication**: Anyone with the link can join (good for demos, not for private stuff)
-5. **Browser Support**: Works best on modern browsers (sorry, Internet Explorer fans!)
+Undo affects the most recent action globally, not per user
 
----
+Performance may slow down with too many concurrent users
 
-## 🎓 What I Learned Building This
+Future Enhancements
 
-This project taught me:
-- How WebSockets enable real-time communication
-- Managing state across multiple clients is HARD
-- Canvas API is powerful but unforgiving
-- Network latency is the enemy of smooth drawing
-- Testing with yourself in multiple browser tabs feels lonely 😅
+Save and load drawings
 
-**Time spent**: About 8-10 hours
-- Planning architecture: 1 hour
-- Server setup: 2 hours  
-- Canvas drawing engine: 2 hours
-- WebSocket client: 1.5 hours
-- Making it look decent: 1.5 hours
-- Debugging weird edge cases: 2 hours (the real MVP 🏆)
+More drawing tools (shapes, text)
 
----
+Export canvas as an image
 
-## 🚀 Deployment
+Private rooms with passwords
 
-This app is deployed on **Render.com** (free tier). 
+License
 
-**Why Render?**
-- ✅ Free hosting (with some limitations)
-- ✅ Easy GitHub integration
-- ✅ Supports WebSockets (crucial for real-time stuff)
-- ✅ Auto-deploys when you push to GitHub
-
-**Note**: Free tier apps "sleep" after 15 minutes of inactivity. They wake up in ~30 seconds when someone visits. If you want 24/7 uptime, use a service like [UptimeRobot](https://uptimerobot.com) to ping it every 5 minutes.
-
----
-
-## 🤝 Want to Contribute?
-
-Found a bug? Have an idea? Feel free to:
-- Open an issue on GitHub
-- Submit a pull request
-- Send me a message
-
-Some ideas for improvements:
-- [ ] Save/load drawings
-- [ ] Add more tools (rectangle, circle, text)
-- [ ] Private rooms with passwords
-- [ ] Export canvas as PNG
-- [ ] Replay drawing history (timelapse!)
-- [ ] Add layers (like Photoshop)
-
----
-
-## 🙏 Acknowledgments
-
-- **HTML5 Canvas API** - For making drawing possible
-- **WebSocket Protocol** - For the real-time magic
-- **Express.js** - For the simple server setup
-- **Coffee ☕** - For keeping me awake during debugging sessions
-
----
-
-## 📝 License
-
-MIT License - Feel free to use this for learning, projects, or showing off to friends!
-
----
-
-## 📧 Questions?
-
-If you're stuck or just want to chat about the project, feel free to reach out!
-
-**Built with ❤️ and a lot of console.log() statements**
-
----
-
-**⭐ If you found this useful, consider giving it a star on GitHub!**
-
----
-
-*Last updated: [Current Date]*
-
+MIT License

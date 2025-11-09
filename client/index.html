@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Header -->
         <header class="header">
             <div class="header-left">
                 <h1>🎨 Collaborative Canvas (flam assignment)</h1>
@@ -25,9 +24,7 @@
             </div>
         </header>
 
-        <!-- Main Content -->
         <div class="main-content">
-            <!-- Sidebar -->
             <aside class="sidebar">
                 <div class="tools-section">
                     <h3>Tools</h3>
@@ -82,7 +79,6 @@
                 </div>
             </aside>
 
-            <!-- Canvas Area -->
             <main class="canvas-container">
                 <div class="canvas-wrapper">
                     <canvas id="canvas"></canvas>
@@ -96,13 +92,12 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="canvas.js"></script>
     <script src="websocket.js"></script>
     <script src="main.js"></script>
     
     <script>
-        // Color preset functionality
+
         document.querySelectorAll('.color-preset').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const color = e.target.dataset.color;
@@ -114,4 +109,5 @@
 </body>
 
 </html>
+
 

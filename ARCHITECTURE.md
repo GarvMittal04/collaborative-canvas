@@ -4,7 +4,7 @@ This document explains how the real-time collaborative drawing application works
 
 ---
 
-##  1. Data Flow Diagram
+##  Data Flow Diagram
 
 The app uses a client–server model with WebSockets for two-way communication. The browser captures drawing events and sends them to the server, which then broadcasts them to all connected clients.
 
@@ -26,7 +26,7 @@ Everyone sees the same drawing!
 
 ---
 
-## 🔌 WebSocket Protocol
+##  WebSocket Protocol
 
 The app uses WebSocket events instead of HTTP requests to achieve real-time two-way communication.
 
@@ -55,7 +55,7 @@ The app uses WebSocket events instead of HTTP requests to achieve real-time two-
 
 ---
 
-## 🔄 Undo/Redo Strategy
+## Undo/Redo Strategy
 
 Undo/Redo is implemented as a **global operation**, not per user. This ensures the entire canvas stays consistent for all users.
 
@@ -80,7 +80,7 @@ Undo/Redo is implemented as a **global operation**, not per user. This ensures t
 
 ---
 
-## ⚙️ Performance Decisions
+##  Performance Decisions
 
 To ensure smooth real-time drawing and low latency, a few key optimizations were used:
 
@@ -100,7 +100,7 @@ To ensure smooth real-time drawing and low latency, a few key optimizations were
 
 ---
 
-## ⚔️ Conflict Resolution
+##  Conflict Resolution
 
 When multiple users draw simultaneously, their operations may overlap. The system follows a simple and predictable approach:
 
@@ -118,7 +118,7 @@ When multiple users draw simultaneously, their operations may overlap. The syste
 
 ---
 
-## ✅ Summary
+##  Summary
 
 This architecture is designed to provide:
 
@@ -129,3 +129,4 @@ This architecture is designed to provide:
 - Predictable conflict resolution for simultaneous actions
 
 It provides a solid foundation that can be extended to include persistence, private rooms, additional tools, and advanced collaborative features in the future.
+

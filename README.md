@@ -1,51 +1,48 @@
-# 🎨 Collaborative Drawing Canvas (Flam Assignment)
+# Collaborative Drawing Canvas
 
-A real-time drawing web app that allows multiple users to sketch together on a shared canvas. Built using Vanilla JavaScript, HTML5 Canvas, Node.js, and Socket.IO, this project focuses on real-time sync and smooth drawing without using any frontend frameworks.
+A real-time drawing web application that allows multiple users to sketch together on a shared canvas. Built using Vanilla JavaScript, HTML5 Canvas, Node.js, and Socket.IO, this project focuses on smooth real-time collaboration without using any frontend frameworks.
 
-Live Demo
+---
 
-(Add your deployed link here)
+## 🚀 Live Demo
 
-Open the link in two or more tabs to see real-time collaboration in action.
+https://collaborative-canvas-ptv4.onrender.com/
 
-Overview
+Open the link in multiple tabs or devices to test real-time collaboration.
 
-This application enables users to draw simultaneously on the same canvas, with each stroke instantly visible to everyone connected. It can be used for basic remote collaboration, sketching ideas, or understanding real-time WebSocket communication.
+---
 
-Features
+## 📌 Overview
 
-Brush and Eraser tools
+This application enables users to draw on the same canvas at the same time, with every action instantly reflected across all clients. It is ideal for collaborative sketching, idea sharing, and learning real-time WebSocket communication.
 
-Color and stroke size control
+---
 
-Real-time drawing sync across users
+## ✨ Features
 
-Shows active users and their cursor positions
+- Brush and eraser tools  
+- Adjustable color and stroke size  
+- Real-time synchronized drawing across users  
+- Displays active users and their cursor positions  
+- Global undo/redo for shared canvas actions  
+- Supports desktop and touch devices  
 
-Global Undo/Redo for actions done on the shared canvas
+---
 
-Works on desktop and touch devices
+## 🛠️ Installation & Setup
 
-Installation & Setup
-Requirements
+### Requirements
+- Node.js v14 or above
 
-Node.js v14 or above
+### Steps to Run
 
-Steps
-git clone https://github.com/YOUR_USERNAME/collaborative-canvas.git
+```bash
+git clone https://github.com/GarvMittal04/collaborative-canvas.git
 cd collaborative-canvas
 npm install
 npm start
-
-
-Now open:
-
 http://localhost:3000
 
-
-For multi-user testing, open the link in multiple browser windows or devices.
-
-Project Structure
 collaborative-canvas/
 ├── client/
 │   ├── index.html
@@ -59,35 +56,3 @@ collaborative-canvas/
 │   └── drawing-state.js
 ├── package.json
 └── README.md
-
-How It Works
-
-User drawing events are captured and sent to the server.
-
-The server broadcasts those events to all connected clients.
-
-Each client updates the canvas to reflect the latest strokes.
-
-Undo/Redo is handled on the server to maintain a consistent shared state.
-
-Known Limitations
-
-Drawing is not saved after server restart (no persistence yet)
-
-Undo affects the most recent action globally, not per user
-
-Performance may slow down with too many concurrent users
-
-Future Enhancements
-
-Save and load drawings
-
-More drawing tools (shapes, text)
-
-Export canvas as an image
-
-Private rooms with passwords
-
-License
-
-MIT License

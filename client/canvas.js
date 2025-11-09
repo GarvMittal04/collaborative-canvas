@@ -10,22 +10,17 @@ class CanvasDrawing {
         this.currentWidth = 3;
         this.lastX = 0;
         this.lastY = 0;
-        
         this.drawQueue = [];
         this.isProcessingQueue = false;
-        
         this.setupCanvas();
         this.bindEvents();
     }
-
     setupCanvas() {
         this.resizeCanvas();
-        window.addEventListener('resize', () => this.resizeCanvas());
-        
+        window.addEventListener('resize', () => this.resizeCanvas());        
         this.ctx.lineCap = 'round';
         this.ctx.lineJoin = 'round';
     }
-
     resizeCanvas() {
         const rect = this.canvas.parentElement.getBoundingClientRect();
         const oldImageData = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
@@ -35,13 +30,11 @@ class CanvasDrawing {
         
         this.ctx.putImageData(oldImageData, 0, 0);
     }
-
     bindEvents() {
         this.canvas.addEventListener('mousedown', (e) => this.startDrawing(e));
         this.canvas.addEventListener('mousemove', (e) => this.draw(e));
         this.canvas.addEventListener('mouseup', () => this.stopDrawing());
         this.canvas.addEventListener('mouseout', () => this.stopDrawing());
-
         this.canvas.addEventListener('touchstart', (e) => {
             e.preventDefault();
             const touch = e.touches[0];
@@ -51,7 +44,6 @@ class CanvasDrawing {
             });
             this.canvas.dispatchEvent(mouseEvent);
         });
-
         this.canvas.addEventListener('touchmove', (e) => {
             e.preventDefault();
             const touch = e.touches[0];
@@ -61,14 +53,12 @@ class CanvasDrawing {
             });
             this.canvas.dispatchEvent(mouseEvent);
         });
-
         this.canvas.addEventListener('touchend', (e) => {
             e.preventDefault();
             const mouseEvent = new MouseEvent('mouseup', {});
             this.canvas.dispatchEvent(mouseEvent);
         });
     }
-
     getCoordinates(e) {
         const rect = this.canvas.getBoundingClientRect();
         return {
@@ -76,7 +66,6 @@ class CanvasDrawing {
             y: e.clientY - rect.top
         };
     }
-
     startDrawing(e) {
         this.isDrawing = true;
         const coords = this.getCoordinates(e);
@@ -87,7 +76,6 @@ class CanvasDrawing {
             this.onDrawStart(coords.x, coords.y);
         }
     }
-
     draw(e) {
         if (!this.isDrawing) {
             if (this.onCursorMove) {
@@ -96,11 +84,8 @@ class CanvasDrawing {
             }
             return;
         }
-
-        const coords = this.getCoordinates(e);
-        
+        const coords = this.getCoordinates(e);    
         this.drawLine(this.lastX, this.lastY, coords.x, coords.y, this.currentColor, this.currentWidth, this.currentTool);
-        
         if (this.onDraw) {
             this.onDraw({
                 x0: this.lastX,
@@ -112,11 +97,9 @@ class CanvasDrawing {
                 tool: this.currentTool
             });
         }
-
         this.lastX = coords.x;
         this.lastY = coords.y;
     }
-
     stopDrawing() {
         if (this.isDrawing) {
             this.isDrawing = false;
@@ -125,7 +108,6 @@ class CanvasDrawing {
             }
         }
     }
-
     drawLine(x0, y0, x1, y1, color, width, tool = 'brush') {
         this.ctx.save();
         this.ctx.beginPath();
@@ -196,4 +178,5 @@ class CanvasDrawing {
             }
         });
     }
+
 }

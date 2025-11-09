@@ -42,20 +42,23 @@ npm install
 npm start
 http://localhost:3000
 
+```
 collaborative-canvas/
-├── client/
-│   ├── index.html
-│   ├── style.css
-│   ├── canvas.js
-│   ├── websocket.js
-│   └── main.js
-├── server/
-│   ├── server.js
-│   ├── rooms.js
-│   └── drawing-state.js
-├── package.json
-└── README.md
-
+├── client/                
+│   ├── index.html          
+│   ├── style.css          
+│   ├── canvas.js           
+│   ├── websocket.js        
+│   └── main.js                
+│
+├── server/                 
+│   ├── server.js           
+│   ├── rooms.js            
+│   └── drawing-state.js   
+│
+├── package.json            
+└── README.md               
+```
 ##  How to Test With Multiple Users
 
 To test real-time collaboration:
@@ -98,4 +101,5 @@ Add save/load feature for drawings
 More tools like shapes, text, layers
 Ability to export drawing as PNG
 Private rooms with optional authentication
+
 

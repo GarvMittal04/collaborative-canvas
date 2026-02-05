@@ -8,7 +8,7 @@ class DrawingState {  // Drawing state management
     addOperation(operation) {
         this.operations.push(operation);
         
-        if (this.operations.length > this.maxOperations) {         // Prevent memory leak
+        if (this.operations.length > this.maxOperations) {         // Prevent memory leak 
             this.operations.shift();
         }
         return operation;
@@ -54,3 +54,4 @@ class DrawingState {  // Drawing state management
 
 
 module.exports = DrawingState;
+

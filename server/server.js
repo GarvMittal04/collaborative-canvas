@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 const clients = new Map();
 const drawingHistory = [];
 let clientIdCounter = 0;
-
+ 
 const MAX_HISTORY = 1000;
 const USER_COLORS = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'];
 
@@ -198,4 +198,5 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server running on http://localhost:3000`);
     console.log(`WebSocket server ready for connections`);
+
 });

@@ -9,7 +9,7 @@ class WebSocketManager {
         this.reconnectAttempts = 0;
         this.maxReconnectAttempts = 5;
         this.reconnectDelay = 1000;
-        
+         
         this.messageQueue = [];
         this.batchInterval = 16;
         this.isBatching = false;
@@ -215,4 +215,5 @@ class WebSocketManager {
             this.ws.close();
         }
     }
+
 }

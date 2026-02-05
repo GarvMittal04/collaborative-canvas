@@ -16,7 +16,7 @@ class CollaborativeCanvas {
     }
 
     init() {
-        if (document.readyState === 'loading') {
+        if (document.readyState === 'loading') { 
             document.addEventListener('DOMContentLoaded', () => this.setup());
         } else {
             this.setup();
@@ -354,4 +354,5 @@ class CollaborativeCanvas {
 
 // Initialize app
 new CollaborativeCanvas();
+
 

@@ -14,7 +14,7 @@ class RoomManager {
                 createdAt: Date.now()
             });
             console.log(`Room ${roomId} created`);
-        }
+        } 
         return this.rooms.get(roomId);
     }
 
@@ -70,5 +70,6 @@ class RoomManager {
         }
     }
 }
+
 
 module.exports = RoomManager;

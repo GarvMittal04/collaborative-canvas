@@ -6,7 +6,7 @@ class CollaborativeCanvas {
         this.wsManager = null; 
         this.drawingHistory = [];
         this.redoStack = [];
-        this.remoteCursors = new Map();
+        this.remoteCursors = new Map(); 
         this.users = [];
         
         this.fps = 0;
@@ -354,5 +354,6 @@ class CollaborativeCanvas {
 
 // Initialize app
 new CollaborativeCanvas();
+
 
 

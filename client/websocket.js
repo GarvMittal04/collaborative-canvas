@@ -6,7 +6,7 @@ class WebSocketManager {
         this.clientId = null;
         this.clientColor = null;
         this.connected = false;
-        this.reconnectAttempts = 0;
+        this.reconnectAttempts = 0; 
         this.maxReconnectAttempts = 5;
         this.reconnectDelay = 1000;
          
@@ -217,3 +217,4 @@ class WebSocketManager {
     }
 
 }
+

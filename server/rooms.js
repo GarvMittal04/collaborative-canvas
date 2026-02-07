@@ -7,7 +7,7 @@ class RoomManager {
 
     createRoom(roomId) {
         if (!this.rooms.has(roomId)) {
-            this.rooms.set(roomId, {
+            this.rooms.set(roomId, { 
                 id: roomId,
                 clients: new Set(),
                 drawingHistory: [],
@@ -73,3 +73,4 @@ class RoomManager {
 
 
 module.exports = RoomManager;
+

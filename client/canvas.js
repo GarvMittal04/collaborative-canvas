@@ -4,7 +4,7 @@ class CanvasDrawing {
     constructor(canvasElement) {
         this.canvas = canvasElement;
         this.ctx = canvasElement.getContext('2d', { willReadFrequently: true });
-        this.isDrawing = false;
+        this.isDrawing = false; 
         this.currentTool = 'brush';
         this.currentColor = '#000000';
         this.currentWidth = 3;
@@ -180,3 +180,4 @@ class CanvasDrawing {
     }
 
 }
+

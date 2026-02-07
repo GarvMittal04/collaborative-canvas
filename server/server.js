@@ -8,7 +8,7 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 app.use(express.static(path.join(__dirname, '../client')));
-
+ 
 const clients = new Map();
 const drawingHistory = [];
 let clientIdCounter = 0;
@@ -200,3 +200,4 @@ server.listen(PORT, () => {
     console.log(`WebSocket server ready for connections`);
 
 });
+

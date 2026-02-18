@@ -8,7 +8,7 @@ class CollaborativeCanvas {
         this.redoStack = [];
         this.remoteCursors = new Map(); 
         this.users = [];
-        
+         
         this.fps = 0;
         this.lastFrameTime = Date.now();
         
@@ -354,6 +354,7 @@ class CollaborativeCanvas {
 
 // Initialize app
 new CollaborativeCanvas();
+
 
 
 
